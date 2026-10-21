@@ -1,0 +1,26 @@
+NAME                       READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS   IMAGES                                                                                             SELECTOR
+deployment.apps/lab6-web   1/1     1            1           20m   nginx        nginx/nginx-unprivileged@sha256:517607ae849a46afbd400616a783e4ead0290f52d20ccc0618ccea1a49362474   app=lab6-web
+
+NAME                            READY   STATUS      RESTARTS   AGE     IP               NODE                          NOMINATED NODE   READINESS GATES
+pod/lab6-client                 1/1     Running     0          4m8s    192.168.37.137   lab6-security-control-plane   <none>           <none>
+pod/lab6-secret-check           0/1     Completed   0          4m8s    192.168.37.138   lab6-security-control-plane   <none>           <none>
+pod/lab6-web-577c9897fb-9ns5z   1/1     Running     0          5m32s   192.168.37.136   lab6-security-control-plane   <none>           <none>
+
+NAME               TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)    AGE   SELECTOR
+service/lab6-web   ClusterIP   10.96.85.122   <none>        8080/TCP   15m   app=lab6-web
+
+NAME                                                  POD-SELECTOR      AGE
+networkpolicy.networking.k8s.io/allow-lab-client      app=lab6-web      12m
+networkpolicy.networking.k8s.io/deny-client-ingress   app=lab6-client   2m22s
+networkpolicy.networking.k8s.io/deny-web-ingress      app=lab6-web      13m
+
+NAME                          AGE
+serviceaccount/default        22m
+serviceaccount/lab6-auditor   18m
+serviceaccount/lab6-web       20m
+
+NAME                                         CREATED AT
+role.rbac.authorization.k8s.io/pod-auditor   2026-10-21T20:08:19Z
+
+NAME                                                ROLE               AGE   USERS   GROUPS   SERVICEACCOUNTS
+rolebinding.rbac.authorization.k8s.io/pod-auditor   Role/pod-auditor   18m                    lab6-security/lab6-auditor

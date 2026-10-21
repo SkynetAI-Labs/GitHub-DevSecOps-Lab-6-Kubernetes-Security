@@ -1,0 +1,3 @@
+serviceaccount/lab6-auditor created
+role.rbac.authorization.k8s.io/pod-auditor created
+rolebinding.rbac.authorization.k8s.io/pod-auditor created

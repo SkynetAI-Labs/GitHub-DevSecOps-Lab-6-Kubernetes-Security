@@ -1,0 +1,10 @@
+NAME                                                  READY   STATUS    RESTARTS   AGE     IP               NODE                          NOMINATED NODE   READINESS GATES
+calico-kube-controllers-7bbf4599f5-spmwm              1/1     Running   0          58s     192.168.37.129   lab6-security-control-plane   <none>           <none>
+calico-node-ctp92                                     1/1     Running   0          58s     172.18.0.2       lab6-security-control-plane   <none>           <none>
+coredns-7d764666f9-8dfmq                              1/1     Running   0          2m22s   192.168.37.132   lab6-security-control-plane   <none>           <none>
+coredns-7d764666f9-jkxnj                              1/1     Running   0          2m22s   192.168.37.131   lab6-security-control-plane   <none>           <none>
+etcd-lab6-security-control-plane                      1/1     Running   0          2m29s   172.18.0.2       lab6-security-control-plane   <none>           <none>
+kube-apiserver-lab6-security-control-plane            1/1     Running   0          2m29s   172.18.0.2       lab6-security-control-plane   <none>           <none>
+kube-controller-manager-lab6-security-control-plane   1/1     Running   0          2m28s   172.18.0.2       lab6-security-control-plane   <none>           <none>
+kube-proxy-9ghct                                      1/1     Running   0          2m22s   172.18.0.2       lab6-security-control-plane   <none>           <none>
+kube-scheduler-lab6-security-control-plane            1/1     Running   0          2m29s   172.18.0.2       lab6-security-control-plane   <none>           <none>

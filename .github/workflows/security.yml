@@ -1,0 +1,41 @@
+name: Kubernetes security checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manifests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Install scanning tools
+        run: |
+          python3 -m venv /tmp/lab6-checkov
+          /tmp/lab6-checkov/bin/pip install --no-cache-dir checkov==3.3.30
+
+      - name: Parse application YAML
+        run: |
+          /tmp/lab6-checkov/bin/python - <<'PY'
+          from pathlib import Path
+          import yaml
+
+          for path in sorted(Path("manifests").glob("*.yaml")):
+              documents = list(yaml.safe_load_all(path.read_text()))
+              assert documents, f"Empty file: {path}"
+              for document in documents:
+                  assert isinstance(document, dict), f"Invalid document: {path}"
+                  assert all(key in document for key in ("apiVersion", "kind", "metadata")), path
+              print("Parsed:", path)
+          PY
+
+      - name: Scan application manifests
+        run: /tmp/lab6-checkov/bin/checkov -d manifests --framework kubernetes --compact --skip-download

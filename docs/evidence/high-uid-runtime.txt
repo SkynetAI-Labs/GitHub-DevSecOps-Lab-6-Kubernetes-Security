@@ -1,0 +1,4 @@
+uid=10001 gid=10001 groups=10001
+CapEff:	0000000000000000
+NoNewPrivs:	1
+Seccomp:	2

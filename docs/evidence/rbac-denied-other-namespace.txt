@@ -1,0 +1,1 @@
+Error from server (Forbidden): pods is forbidden: User "system:serviceaccount:lab6-security:lab6-auditor" cannot list resource "pods" in API group "" in the namespace "kube-system"

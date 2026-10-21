@@ -1,0 +1,1 @@
+deployment "lab6-web" successfully rolled out

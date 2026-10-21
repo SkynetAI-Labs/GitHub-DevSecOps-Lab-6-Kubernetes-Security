@@ -1,0 +1,1 @@
+networkpolicy.networking.k8s.io/allow-lab-client created

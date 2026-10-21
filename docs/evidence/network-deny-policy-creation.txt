@@ -1,0 +1,1 @@
+networkpolicy.networking.k8s.io/deny-web-ingress created

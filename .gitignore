@@ -1,0 +1,21 @@
+# Local credentials and secrets
+.kube/
+kubeconfig*
+*.kubeconfig
+.env
+.env.*
+*.pem
+*.key
+*secret-values*
+.secrets.baseline
+
+# Python environments and caches
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Local downloads and temporary files
+tools/
+*.tar.gz
+*.zip

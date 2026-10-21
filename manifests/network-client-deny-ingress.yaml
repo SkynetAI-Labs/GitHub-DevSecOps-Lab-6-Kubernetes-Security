@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-client-ingress
+  namespace: lab6-security
+spec:
+  podSelector:
+    matchLabels:
+      app: lab6-client
+  policyTypes:
+    - Ingress
+  ingress: []

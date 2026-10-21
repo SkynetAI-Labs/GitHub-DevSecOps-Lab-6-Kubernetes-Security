@@ -1,0 +1,2 @@
+serviceaccount/lab6-web created
+deployment.apps/lab6-web created
