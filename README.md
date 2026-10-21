@@ -173,3 +173,16 @@ and a live control-plane audit remain outside the verified scope.
 
 GitHub Actions integration and its execution results will be recorded
 during publication. No successful workflow run is claimed yet.
+
+## Verified GitHub Actions execution
+
+[Workflow run 39672458309](https://github.com/SkynetAI-Labs/GitHub-DevSecOps-Lab-6-Kubernetes-Security/actions/runs/39672458309)
+completed on 21 October 2026.
+
+The workflow reached the scanning step after YAML parsing.
+Checkov 3.3.30 reported 279 passed checks, 4 failed and 0 skipped,
+matching the local post-remediation scan.
+
+The workflow failed on CKV_K8S_8 and CKV_K8S_9 for the two disposable
+test pods. These findings remain documented and unsuppressed.
+This was a static CI scan, not a Kubernetes deployment in GitHub Actions.
