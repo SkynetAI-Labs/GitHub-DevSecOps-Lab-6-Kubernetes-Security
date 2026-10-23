@@ -1,4 +1,4 @@
-# GitHub DevSecOps Lab 6 — Kubernetes Security
+# GitHub DevSecOps Lab 06 — Kubernetes Security
 
 A local Kubernetes security lab covering container hardening, restricted
 pod admission, least-privilege RBAC, network-policy enforcement and
@@ -176,7 +176,7 @@ during publication. No successful workflow run is claimed yet.
 
 ## Verified GitHub Actions execution
 
-[Workflow run 39672458309](https://github.com/SkynetAI-Labs/GitHub-DevSecOps-Lab-6-Kubernetes-Security/actions/runs/39672458309)
+[Workflow run 39672458309](https://github.com/SkynetAI-Labs/lab-06-kubernetes-security/actions/runs/39672458309)
 completed on 21 October 2026.
 
 The workflow reached the scanning step after YAML parsing.
