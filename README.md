@@ -37,6 +37,9 @@ flowchart LR
 
 The namespace enforces restricted Pod Security Standards.
 The auditor role allows get, list and watch on pods in this namespace.
+Recorded RBAC tests used administrator impersonation of the auditor service
+account, not a separate service-account login. Pod deletion was checked with
+`kubectl auth can-i`; no deletion was attempted as the auditor.
 Application and test pods do not automatically mount API tokens.
 
 ## Security controls
@@ -166,13 +169,27 @@ behaviour, verify runtime controls and preserve remediation history.
 This lab demonstrates workload isolation, restricted audit access,
 network segmentation and controlled secret consumption.
 Network labels require protected workload-management permissions.
+The policy named `deny-web-ingress` selects web pods only; it is not a
+namespace-wide default deny. The allow policy permits matching client pods
+in the same namespace on TCP 8080. Policies combine additively.
+The secret-check pod is not selected by an ingress-deny policy.
+The client ingress-deny policy was configured, but inbound blocking to that
+client was not separately connection-tested.
 Egress restrictions, encrypted Secret storage, image vulnerability scanning
 and a live control-plane audit remain outside the verified scope.
 
 ## Automation status
 
-GitHub Actions integration and its execution results will be recorded
-during publication. No successful workflow run is claimed yet.
+GitHub Actions parses the application YAML and runs Checkov 3.3.30.
+The parser checks basic document structure; it is not Kubernetes API-schema
+validation. CI does not create a cluster or repeat the live security tests.
+
+The latest reviewed [workflow run 39992078320](https://github.com/SkynetAI-Labs/lab-06-kubernetes-security/actions/runs/39992078320)
+completed on 23 October 2026 for commit
+`ebcbbda3db3fd68e676bda792e909006dc3fbb04`.
+YAML parsing passed. Checkov returned 279 passed, 4 failed and 0 skipped.
+The job and overall workflow failed because the four documented probe
+findings remain open. No findings were suppressed.
 
 ## Verified GitHub Actions execution
 
